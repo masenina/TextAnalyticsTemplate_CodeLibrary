@@ -10,7 +10,7 @@ class PageRenderer{
      * @description Setting default values for parameters in the first run
      */
     static function InitiateParameters(context){
-        if(context.component.SubmitSource === "lstQuestions") {
+        if(context.component.SubmitSource === "lstQuestion") {
             ParameterUtilities.SetDefaultParameterValues(
                 {
                     context: context,
@@ -24,7 +24,7 @@ class PageRenderer{
             parameterValues: DefaultParameters.values.concat(
                 {
                     Id: "TA_FOLDERS",
-                    Value: (Config.TAQuestions[0].TAQuestionName+Config.TAQuestions[0].TAModelNo)
+                    Value: (Config.TAQuestions[0].DatasourceId + Config.TAQuestions[0].TAQuestionName + Config.TAQuestions[0].TAModelNo)
                 }
             )
         });
@@ -37,7 +37,7 @@ class PageRenderer{
      * @description clearing filters when necessary
      */
     static function InitiateFilters(context){
-        if(context.component.SubmitSource === "ClearFilters" || context.component.SubmitSource === "btnClearFilters" || context.component.SubmitSource === "lstQuestions"){
+        if(context.component.SubmitSource === "ClearFilters" || context.component.SubmitSource === "btnClearFilters" || context.component.SubmitSource === "lstQuestion"){
             FilterComponents.ClearFilters(context);
             var dateParameters = DefaultParameters.dateParameters;
 
